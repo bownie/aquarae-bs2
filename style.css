@@ -1,6 +1,8 @@
 body {
   padding-top: 5rem;
+  font-family: 'Lato', serif;
 }
+
 .starter-template {
   padding: 3rem 1.5rem;
   text-align: center;
@@ -8,4 +10,15 @@ body {
 
 h1, h2 {
   color: #666;
+  font-family: 'Lato', serif;
+}
+
+.fa-icon {
+  font-size: 32px;
+  color: #888;
+  margin: 5px;
+}
+
+.footer-copyright {
+  font-size: 12px;
 }
