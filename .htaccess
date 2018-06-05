@@ -1,5 +1,10 @@
 Modpagespeed Off
 
+# 
+# associate .js with "text/javascript" type (if not present in mime.conf)
+# 
+AddType text/javascript .js
+
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>
 ExpiresActive On
@@ -15,3 +20,19 @@ ExpiresByType image/x-icon "access plus 1 year"
 ExpiresDefault "access plus 2 days"
 </IfModule>
 ## EXPIRES CACHING ##
+
+# 
+# configure mod_headers
+# 
+# URL: http://httpd.apache.org/docs/2.2/mod/mod_headers.html
+# 
+<IfModule mod_headers.c>
+    <FilesMatch "\\.(ico|jpe?g|png|gif|swf|css|js)$">
+        Header set Cache-Control "max-age=2692000, public"
+    </FilesMatch>
+    <FilesMatch "\\.(x?html?|php)$">
+        Header set Cache-Control "max-age=600, private, must-revalidate"
+    </FilesMatch>
+    Header unset ETag
+    Header unset Last-Modified
+</IfModule>
